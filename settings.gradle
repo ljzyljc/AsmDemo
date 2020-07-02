@@ -1,0 +1,5 @@
+rootProject.name='AsmDemo'
+include ':app'
+include ':trycatchplugin'
+include ':huntertransformplugin'
+include ':timeplugin'

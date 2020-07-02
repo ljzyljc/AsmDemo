@@ -1,0 +1,69 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
+//apply plugin: 'com.jackie.trycatch'
+//apply plugin: 'com.jackie.time.timeplugin'
+apply plugin: 'com.jackie.time'
+
+//tryCatchInfo {
+//    pathName = "com.jackie.testlib.MyClass"
+//    methodName = "testCrash"
+//    exceptionName = "java.lang.Exception"
+//    returnValue = 10
+//}
+
+//timeHunter {
+//    runVariant = 'DEBUG'
+//    whitelist = ['com.quinn.hunter.timing.DataSource', 'com.foo.package2']
+//    blacklist = ['com.quinn.hunter.timing.black', 'com.foo.package2']
+//}
+
+
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+    defaultConfig {
+        applicationId "com.jackie.asmdemo"
+        minSdkVersion 18
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+//    implementation 'org.ow2.asm:asm:7.0'
+//    implementation 'org.ow2.asm:asm-commons:7.0'
+
+    implementation 'org.ow2.asm:asm:7.0'
+    implementation 'org.ow2.asm:asm-util:7.0'
+    implementation 'org.ow2.asm:asm-commons:7.0'
+//    implementation "androidx.core:core-ktx:+"
+//    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
+}

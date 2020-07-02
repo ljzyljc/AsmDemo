@@ -1,0 +1,33 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+repositories {
+    jcenter()
+}
+
+//Plugin 标示信息
+group 'com.jackie.time'
+version '1.0.1'
+
+//本地发布，发布到根目录的 /repo 文件夹下
+uploadArchives{
+    repositories {
+        mavenDeployer{
+            repository(url :uri('../repo'))
+        }
+    }
+}
+
+dependencies {
+    implementation gradleApi()//gradle sdk
+    implementation localGroovy()//groovy sdk
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.android.tools.build:gradle:3.5.3'
+    //implementation 'org.javassist:javassist:3.20.0-GA'
+    implementation 'org.ow2.asm:asm:7.0'
+    implementation 'org.ow2.asm:asm-commons:7.0'
+    implementation 'com.quinn.hunter:hunter-transform:0.9.0'
+
+//    implementation project(path: ':huntertransformplugin')
+}
